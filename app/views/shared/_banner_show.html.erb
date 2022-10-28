@@ -1,10 +1,12 @@
+  <% if @list.photo.attached? %>
+    <% url = cl_image_path @list.photo.key, height: 300,gravity: :auto, crop: :fill %>
+  <% else %>
+    <% url = "https://images.unsplash.com/photo-1568876694728-451bbf694b83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" %>
+  <% end %>
+
 
 <div class="position-relative">
-  <% if @list.photo.attached? %>
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>);">
-  <% else %>
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1568876694728-451bbf694b83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80);">
-  <% end %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= url %>);">
     <div class="movie-tag"><%= num_movies %> movies</div>
     <div class="container text-center align-items-center">
       <h1><%= title %></h1>
