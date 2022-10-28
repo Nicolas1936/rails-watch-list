@@ -9,7 +9,7 @@
     <% @lists.each do |list| %>
       <div class="col-12 col-sm-6 col-md-4 mb-3">
       <%= link_to list_path(list), class:"text-decoration-none" do %>
-        <%= render "shared/card_category", title: list.name %>
+        <%= render "shared/card_category", list: list %>
       <% end %>
       </div>
     <% end %>
